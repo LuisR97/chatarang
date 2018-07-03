@@ -11,6 +11,7 @@ class MessageForm extends Component
     {
         ev.preventDefault()
         this.props.addMessage(this.state.body)
+        this.setState({body: ''})
     }
 
     handleChange = (ev) => 
