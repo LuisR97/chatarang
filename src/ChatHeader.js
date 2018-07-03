@@ -3,8 +3,6 @@ import React from 'react'
 
 const ChatHeader = () =>
 {
-    render()
-    {
         return (
             <header className="ChatHeader">
                 <div className="roomInfo">
@@ -13,7 +11,6 @@ const ChatHeader = () =>
                 </div>
             </header>
         )
-    }
 }
 
 export default ChatHeader
