@@ -37,7 +37,7 @@ class Chat extends Component
         }
     }
 
-    addMessage = () => 
+    addMessage = (body) => 
     {
         const messages = [...this.state.messages]
         
@@ -50,10 +50,14 @@ class Chat extends Component
                     displayName: 'Stefany',
                     email: 'stefany@singing.org',
                 },
-                body: 'I do not think he\'s annoying. How dare you, Dana!',
-
-            }
+                body,
+                
+              //Saying these lines vvv  
+            } //body = body: body
+              //messages : messages = messages
         )
+        this.setState({messages:messages})
+
     }
 
 
