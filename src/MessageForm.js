@@ -2,12 +2,18 @@ import React, {Component } from 'react'
 
 class MessageForm extends Component
 {
+    handleSubmit = (ev) => 
+    {
+        ev.preventDefault()
+        this.props.addMessage()
+    }
+
     render ()
     {
         return(
             <form className = "MessageForm">
             <input 
-                autofocus
+                autoFocus
                 required
                 type = "text"
                 name = "body"
@@ -21,4 +27,4 @@ class MessageForm extends Component
     }
 }
 
-expor default MessageForm
+export default MessageForm
