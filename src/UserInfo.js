@@ -1,4 +1,5 @@
 import React from 'react'
+import Avatar from './Avatar'
 
 const Userinfo = (props) => 
 {
@@ -7,7 +8,7 @@ const Userinfo = (props) =>
         className="UserInfo"
         style={styles.userInfo}
       >
-        <div className="Avatar"></div>
+      <Avatar user = {props.user}/>
         <div style = {styles.user}>
           {props.user.displayName}
         </div>
