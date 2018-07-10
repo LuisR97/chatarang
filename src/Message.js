@@ -5,18 +5,37 @@ import Metadata from './MetaData'
 const Message = ({ message }) =>
 {
     return(
-        <div className="Message">
+        <div 
+            className="Message"
+            style = {styles.message}    
+        >
           <Avatar user = {message.user} />
-          <div className="details">
+          <div style = {styles.details}>
             <Metadata message = {message}/>
             <div className="body">
-            {message.body}
+                {message.body}
             </div>
           </div>
         </div>
     )
 }
 
+const styles = 
+{
+    message:
+    {
+    display: 'flex',
+    marginTop: '1rem',
+    padding: '0 1rem',
+    },
+      
+    details:
+    {
+    flex: 1,
+    paddingLeft: '0.5re',
+    },
+      
+}
 
 
 export default Message
