@@ -2,7 +2,7 @@ import React from 'react'
 import Avatar from './Avatar'
 import SignOutButton from './SignOutButton'
 
-const Userinfo = ({ user }) => 
+const Userinfo = ({ user, signOut }) => 
 {
     return (
         <div
@@ -13,7 +13,7 @@ const Userinfo = ({ user }) =>
         <div style = {styles.user}>
           {user.displayName}
         </div>
-        <SignOutButton />
+        <SignOutButton signOut = {signOut}/>
       </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Main from "./Main"
+import SignIn from "./SignIn"
 
 class App extends Component 
 {
@@ -13,19 +14,38 @@ class App extends Component
     {
       user: 
       {
-        uid: 'Luis',
-        displayName: 'Luis',
-        email: 'ray@gmail.com',
+        
       },
     }
+  }
+
+  handleAuth = (user) =>
+  {
+    this.setState ({ user })
+  }
+
+  signedIn = () =>
+  {
+    return this.state.user.uid
+  }
+
+  signOut = () =>
+  {
+    this.setState({ user: {} })
   }
 
   render()
   {
     return (
       <div className="App">
-        Chatarang
-        <Main user = {this.state.user}/>
+      {
+        this.signedIn()
+        ? <Main 
+              user = {this.state.user}
+              signOut = {this.signOut}
+          />
+        : <SignIn handleAuth = {this.handleAuth} />
+      }
       </div>
     );
   }
