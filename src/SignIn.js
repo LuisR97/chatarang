@@ -1,11 +1,28 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite'
+import { auth, googleProvider } from './base'
 
 class SignIn extends Component 
 {
   state = 
   {
     email: '',
+  }
+
+  authenticate = () =>
+  {
+    auth
+    .signInWithPopup(googleProvider)
+    .then(result => 
+    {
+        const { user } = result
+        this.props.handleAuth({
+            displayName: user.displayName,
+            email: user.email,
+            uid: user.uid,
+        })
+
+    })
   }
 
   handleChange = (ev) => 
@@ -38,7 +55,7 @@ class SignIn extends Component
             className={css(styles.form)}
             onSubmit={this.handleSubmit}
           >
-            <label
+            {/* <label
               htmlFor="email"
               className={css(styles.label)}
             >
@@ -57,6 +74,14 @@ class SignIn extends Component
               className={css(styles.button)}
             >
               Sign In
+            </button> */} 
+
+            <button
+                type = "button"
+                className = {css(styles.button)}
+                onClick = {this.authenticate}
+            >
+                Sign in with Google
             </button>
           </form>
 

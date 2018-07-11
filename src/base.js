@@ -1,10 +1,10 @@
 import firebase from 'firebase/app'
 import 'firebase/database'
+import 'firebase/auth'
 import Rebase from 're-base'
 
 
 //Intialize firebase
-
 const config = {
     apiKey: "AIzaSyD-DCIDfFQtOtiWVZ7bnmB8Jb1N8GB3GmA",
     authDomain: "chat-s3afternoon-83b55.firebaseapp.com",
@@ -15,6 +15,10 @@ const config = {
   };
 
   const app = firebase.initializeApp(config);
+
+  //Configure authentication
+  export const googleProvider = new firebase.auth.GoogleAuthProvider();
+  export const auth = firebase.auth()
   
   //Configure database and Rebase
   const db = firebase.database(app)
