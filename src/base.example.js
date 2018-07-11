@@ -1,4 +1,7 @@
 import firebase from 'firebase/app'
+import 'firebase/database'
+import Rebase from 're-base'
+
 
 // Initialize Firebase
 const config = {
@@ -10,4 +13,9 @@ const config = {
     messagingSenderId: "YOUR MESSAGING SENDER ID"
   }
   
-  const app = firebase.initializeApp(config)
+  const app = firebase.initializeApp(config);
+  
+  //Configure database and Rebase
+  const db = firebase.database(app)
+  const base = Rebase.createClass(db)
+  export default base 

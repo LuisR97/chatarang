@@ -3,6 +3,9 @@ import ChatHeader from './ChatHeader';
 import MessageList from './MessageList';
 import MessageForm from './MessageForm';
 
+import base from './base'
+
+
 class Chat extends Component
 
 {
@@ -12,29 +15,25 @@ class Chat extends Component
 
         this.state =
         {
-            messages : 
-            [
-                {
-                  id: 1,
-                  user: {
-                    uid: 'sdfs34849327',
-                    displayName: 'Davey',
-                    email: 'davey@fretless.com',
-                  },
-                  body: 'Chatting up a storm, yo!',
-                },
-            
-                {
-                  id: 2,
-                  user: {
-                    uid: 'sdlfkj35948',
-                    displayName: 'Dana',
-                    email: 'dana@fretless.com',
-                  },
-                  body: 'This guy is so annoying. I hate my job.',
-                },
-            ]
+            messages : [],
         }
+    }
+
+    componentWillUnmount()
+    {
+        base.removeBinding(this.messagesRef)
+    }
+
+    componentDidMount()
+    {    
+        this.messagesRef = base.syncState(
+            'messages/general',
+            {
+                context: this, 
+                state: 'messages',
+                asArray: true,
+            }
+        )
     }
 
     addMessage = (body) => 
